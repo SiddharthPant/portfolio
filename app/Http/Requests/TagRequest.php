@@ -6,6 +6,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class TagRequest extends FormRequest
 {
+    /**
+     * @return string[][]
+     */
     public function rules(): array
     {
         return [
