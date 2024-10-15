@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Http\Resources;
+
+use App\Models\Post;
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
+
+/** @mixin Post */ class PostResource extends JsonResource
+{
+    /**
+     * @return array<string, mixed>
+     */
+    public function toArray(Request $request): array
+    {
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'body' => $this->body,
+            'html' => $this->html,
+            'published_at' => $this->published_at,
+            'likes_count' => $this->likes_count,
+            'dislikes_count' => $this->dislikes_count,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+
+            'user_id' => $this->user_id, //
+        ];
+    }
+}
