@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e970a2c2ddfc24e0f896c4e063701d1a",
+    "content-hash": "f9dc631e278078390a4770c1c490d842",
     "packages": [
         {
             "name": "brick/math",
@@ -1056,28 +1056,29 @@
         },
         {
             "name": "inertiajs/inertia-laravel",
-            "version": "v1.3.0",
+            "version": "2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/inertiajs/inertia-laravel.git",
-                "reference": "36730d13b1dab9017069004fd458b3e67449a326"
+                "reference": "141256b2ed1833158852c9d239d00abec8ff4942"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/inertiajs/inertia-laravel/zipball/36730d13b1dab9017069004fd458b3e67449a326",
-                "reference": "36730d13b1dab9017069004fd458b3e67449a326",
+                "url": "https://api.github.com/repos/inertiajs/inertia-laravel/zipball/141256b2ed1833158852c9d239d00abec8ff4942",
+                "reference": "141256b2ed1833158852c9d239d00abec8ff4942",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "laravel/framework": "^8.74|^9.0|^10.0|^11.0",
-                "php": "^7.3|~8.0.0|~8.1.0|~8.2.0|~8.3.0",
+                "laravel/framework": "^10.0|^11.0",
+                "php": "^8.1.0",
                 "symfony/console": "^5.3|^6.0|^7.0"
             },
             "require-dev": {
+                "laravel/pint": "^1.16",
                 "mockery/mockery": "^1.3.3",
-                "orchestra/testbench": "^6.4|^7.0|^8.0|^9.0",
-                "phpunit/phpunit": "^8.0|^9.5.8|^10.4",
+                "orchestra/testbench": "^8.0|^9.0",
+                "phpunit/phpunit": "^10.4|^11.0",
                 "roave/security-advisories": "dev-master"
             },
             "suggest": {
@@ -1120,7 +1121,7 @@
             ],
             "support": {
                 "issues": "https://github.com/inertiajs/inertia-laravel/issues",
-                "source": "https://github.com/inertiajs/inertia-laravel/tree/v1.3.0"
+                "source": "https://github.com/inertiajs/inertia-laravel/tree/2.x"
             },
             "funding": [
                 {
@@ -1128,7 +1129,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-06-13T01:25:09+00:00"
+            "time": "2024-10-10T13:16:21+00:00"
         },
         {
             "name": "laravel/framework",
@@ -5910,16 +5911,16 @@
         },
         {
             "name": "brianium/paratest",
-            "version": "v7.5.7",
+            "version": "v7.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paratestphp/paratest.git",
-                "reference": "4890b17f569efea5e034e519dc883da53a67448d"
+                "reference": "68ff89a8de47d086588e391a516d2a5b5fde6254"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paratestphp/paratest/zipball/4890b17f569efea5e034e519dc883da53a67448d",
-                "reference": "4890b17f569efea5e034e519dc883da53a67448d",
+                "url": "https://api.github.com/repos/paratestphp/paratest/zipball/68ff89a8de47d086588e391a516d2a5b5fde6254",
+                "reference": "68ff89a8de47d086588e391a516d2a5b5fde6254",
                 "shasum": ""
             },
             "require": {
@@ -5929,11 +5930,11 @@
                 "ext-simplexml": "*",
                 "fidry/cpu-core-counter": "^1.2.0",
                 "jean85/pretty-package-versions": "^2.0.6",
-                "php": "~8.2.0 || ~8.3.0",
-                "phpunit/php-code-coverage": "^11.0.6",
+                "php": "~8.2.0 || ~8.3.0 || ~8.4.0",
+                "phpunit/php-code-coverage": "^11.0.7",
                 "phpunit/php-file-iterator": "^5.1.0",
                 "phpunit/php-timer": "^7.0.1",
-                "phpunit/phpunit": "^11.4.0",
+                "phpunit/phpunit": "^11.4.1",
                 "sebastian/environment": "^7.2.0",
                 "symfony/console": "^6.4.11 || ^7.1.5",
                 "symfony/process": "^6.4.8 || ^7.1.5"
@@ -5942,7 +5943,6 @@
                 "doctrine/coding-standard": "^12.0.0",
                 "ext-pcov": "*",
                 "ext-posix": "*",
-                "infection/infection": "^0.29.7",
                 "phpstan/phpstan": "^1.12.6",
                 "phpstan/phpstan-deprecation-rules": "^1.2.1",
                 "phpstan/phpstan-phpunit": "^1.4.0",
@@ -5988,7 +5988,7 @@
             ],
             "support": {
                 "issues": "https://github.com/paratestphp/paratest/issues",
-                "source": "https://github.com/paratestphp/paratest/tree/v7.5.7"
+                "source": "https://github.com/paratestphp/paratest/tree/v7.6.0"
             },
             "funding": [
                 {
@@ -6000,7 +6000,7 @@
                     "type": "paypal"
                 }
             ],
-            "time": "2024-10-07T06:27:54+00:00"
+            "time": "2024-10-15T12:38:31+00:00"
         },
         {
             "name": "doctrine/deprecations",
@@ -9433,7 +9433,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "inertiajs/inertia-laravel": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
