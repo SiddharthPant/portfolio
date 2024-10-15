@@ -2,15 +2,20 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
+use App\Traits\HasRealTimestamps;
+use DateMalformedStringException;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
+ * @extends Factory<User>
  */
 class UserFactory extends Factory
 {
+    use HasRealTimestamps;
+
     /**
      * The current password being used by the factory.
      */
@@ -20,15 +25,21 @@ class UserFactory extends Factory
      * Define the model's default state.
      *
      * @return array<string, mixed>
+     *
+     * @throws DateMalformedStringException
      */
     public function definition(): array
     {
+        $timestamps = $this->generateTimestamps('-4 years', '-3 years');
+
         return [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
+            'email_verified_at' => fake()->dateTimeBetween($startDate = '-3 years', $endDate = 'now', $timezone = null),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
+            'created_at' => $timestamps['created_at'],
+            'updated_at' => $timestamps['updated_at'],
         ];
     }
 

@@ -5,22 +5,32 @@ namespace Database\Factories;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
+use App\Traits\HasRealTimestamps;
+use DateMalformedStringException;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Carbon;
 
+/**
+ * @extends Factory<Comment>
+ */
 class CommentFactory extends Factory
 {
+    use HasRealTimestamps;
+
     protected $model = Comment::class;
 
+    /**
+     * @throws DateMalformedStringException
+     */
     public function definition(): array
     {
+        $timestamps = $this->generateTimestamps();
+
         return [
-            'body' => $this->faker->word(), //
-            'html' => $this->faker->word(),
-            'likes_count' => $this->faker->word(),
-            'dislikes_count' => $this->faker->word(),
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
+            'body' => $this->faker->text(144), //
+            'likes_count' => $this->faker->randomNumber(2),
+            'dislikes_count' => $this->faker->randomNumber(2),
+            'created_at' => $timestamps['created_at'],
+            'updated_at' => $timestamps['updated_at'],
 
             'user_id' => User::factory(),
             'post_id' => Post::factory(),

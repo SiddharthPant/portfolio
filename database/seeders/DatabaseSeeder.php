@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Comment;
+use App\Models\Post;
+use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -14,11 +17,30 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        $readers = User::factory(100)->create();
+        $tags = Tag::factory(10)->create();
+        $admin = User::factory()->create([
+            'name' => 'admin',
+            'email' => 'admin@example.com',
         ]);
+
+        Post::factory(5)
+            ->withFixture()
+            ->for($admin)
+            ->create()
+            ->each(function (Post $post) use ($tags, $readers) {
+                $post->tags()->attach($tags->random(rand(1, 5)));
+                Comment::factory()->count(rand(1, 15))->recycle($readers)->recycle($post)->create();
+            });
+
+        Post::factory(50)
+            ->published()
+            ->withFixture()
+            ->for($admin)
+            ->create()
+            ->each(function (Post $post) use ($tags, $readers) {
+                $post->tags()->attach($tags->random(rand(1, 5)));
+                Comment::factory()->count(rand(1, 15))->recycle($readers)->recycle($post)->create();
+            });
     }
 }
