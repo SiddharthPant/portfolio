@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\ConvertsMarkdownToHtml;
 use Database\Factories\PostFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -12,9 +13,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
+    use ConvertsMarkdownToHtml;
+
     /** @use HasFactory<PostFactory> */
     use HasFactory;
-
     use SoftDeletes;
 
     protected $fillable = [
