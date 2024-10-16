@@ -1,17 +1,23 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Resources\PostResource;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
+    return Inertia::render('Index', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
-        //        'laravelVersion' => Application::VERSION,
-        //        'phpVersion' => PHP_VERSION,
+        'posts' => PostResource::collection(
+            Post::whereNotNull('published_at')
+                ->with('tags')
+                ->latest()
+                ->paginate(10)
+        ),
     ]);
-});
+})->name('index');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

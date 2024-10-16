@@ -15,7 +15,6 @@ use Illuminate\Http\Resources\Json\JsonResource;
     {
         return [
             'id' => $this->id,
-            'body' => $this->body,
             'html' => $this->html,
             'likes_count' => $this->likes_count,
             'dislikes_count' => $this->dislikes_count,
@@ -25,7 +24,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
             'user_id' => $this->user_id,
             'post_id' => $this->post_id,
 
-            'post' => new PostResource($this->whenLoaded('post')), //
+            'post' => new PostResource($this->whenLoaded('post')),
         ];
     }
 }
