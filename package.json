@@ -27,6 +27,7 @@
     },
     "dependencies": {
         "@fontsource/inter": "^5.1.0",
-        "@heroicons/react": "^2.1.5"
+        "@heroicons/react": "^2.1.5",
+        "date-fns": "^4.1.0"
     }
 }
