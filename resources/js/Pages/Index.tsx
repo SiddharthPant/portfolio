@@ -2,6 +2,7 @@ import AppLayout from "@/Layouts/AppLayout";
 import { Head, Link } from "@inertiajs/react";
 import { Paginate, Post } from "@/types";
 import { formatDistance } from "date-fns";
+import { HandThumbDownIcon, HandThumbUpIcon } from "@heroicons/react/24/solid";
 
 export default function ({ posts }: { posts: Paginate<Post> }) {
     return (
@@ -54,6 +55,24 @@ export default function ({ posts }: { posts: Paginate<Post> }) {
                                         <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
                                             {post.stripped_content}
                                         </p>
+                                    </div>
+                                    <div className="relative mt-2 flex items-center gap-x-4">
+                                        <div className="text-xs leading-6">
+                                            <div className="relative mt-2 flex items-center gap-x-4">
+                                                <div className="flex items-center text-xs leading-6">
+                                                    <span className="mr-1">
+                                                        {post.likes_count}
+                                                    </span>
+                                                    <HandThumbUpIcon className="h-4 w-4 text-gray-500" />
+                                                </div>
+                                                <div className="flex items-center text-xs leading-6">
+                                                    <span className="mr-1">
+                                                        {post.dislikes_count}
+                                                    </span>
+                                                    <HandThumbDownIcon className="h-4 w-4 text-gray-500" />
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </article>
                             ))}
