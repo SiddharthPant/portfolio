@@ -27,12 +27,12 @@ class PostFactory extends Factory
         $timestamps = $this->generateTimestamps();
 
         return [
-            'title' => $this->faker->word(), //
+            'title' => $this->faker->word(),
             'body' => $this->faker->word(),
             'html' => $this->faker->word(),
             'published_at' => Carbon::now(),
-            'likes_count' => $this->faker->randomNumber(),
-            'dislikes_count' => $this->faker->randomNumber(),
+            'likes_count' => $this->faker->randomNumber(2),
+            'dislikes_count' => $this->faker->randomNumber(2),
             'created_at' => $timestamps['created_at'],
             'updated_at' => $timestamps['updated_at'],
 
