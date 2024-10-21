@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Concerns\ConvertsMarkdownToHtml;
+use App\Models\Concerns\HasSqid;
 use Database\Factories\CommentFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -16,7 +17,10 @@ class Comment extends Model
     /** @use HasFactory<CommentFactory> */
     use HasFactory;
 
+    use HasSqid;
     use SoftDeletes;
+
+    const SQID_PREFIX = 'cmnt_';
 
     protected $fillable = [
         'body',

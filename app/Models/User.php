@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Concerns\HasSqid;
 use App\Support\UserRoleEnum;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,6 +14,10 @@ class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
+
+    use HasSqid;
+
+    const SQID_PREFIX = 'usr_';
 
     /**
      * The attributes that are mass assignable.
