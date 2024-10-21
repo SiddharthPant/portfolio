@@ -14,7 +14,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->id,
+            'slug' => $this->slug,
             'title' => $this->title,
             'stripped_content' => $this->getStrippedContent(),
             'published_at' => $this->published_at,

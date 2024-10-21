@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Resources\PostResource;
 use App\Models\Post;
+use App\Support\PostStatusEnum;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -11,7 +12,7 @@ Route::get('/', function () {
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'posts' => PostResource::collection(
-            Post::whereNotNull('published_at')
+            Post::where('status', PostStatusEnum::PUBLISHED)
                 ->with('tags')
                 ->latest()
                 ->paginate(10)

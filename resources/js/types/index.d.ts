@@ -37,7 +37,7 @@ export type Tag = {
 };
 
 export type Post = {
-    id: number;
+    slug: number;
     title: string;
     body?: string;
     html?: string;
