@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Concerns\ConvertsMarkdownToHtml;
+use App\Support\PostStatusEnum;
 use Database\Factories\PostFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -17,6 +18,7 @@ class Post extends Model
 
     /** @use HasFactory<PostFactory> */
     use HasFactory;
+
     use SoftDeletes;
 
     protected $fillable = [
@@ -26,7 +28,7 @@ class Post extends Model
     ];
 
     /**
-     * @return BelongsTo<User, Post>
+     * @return BelongsTo<User, $this>
      */
     public function user(): BelongsTo
     {
@@ -41,7 +43,7 @@ class Post extends Model
     }
 
     /**
-     * @return BelongsToMany<Tag>
+     * @return BelongsToMany<Tag, $this>
      */
     public function tags(): BelongsToMany
     {
@@ -49,7 +51,7 @@ class Post extends Model
     }
 
     /**
-     * @return HasMany<Comment>
+     * @return HasMany<Comment, $this>
      */
     public function comments(): HasMany
     {
@@ -60,6 +62,7 @@ class Post extends Model
     {
         return [
             'published_at' => 'datetime',
+            'status' => PostStatusEnum::class,
         ];
     }
 }

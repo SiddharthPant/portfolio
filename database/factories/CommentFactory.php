@@ -26,7 +26,7 @@ class CommentFactory extends Factory
         $timestamps = $this->generateTimestamps();
 
         return [
-            'body' => $this->faker->text(144), //
+            'body' => $this->faker->text(144),
             'likes_count' => $this->faker->randomNumber(2),
             'dislikes_count' => $this->faker->randomNumber(2),
             'created_at' => $timestamps['created_at'],

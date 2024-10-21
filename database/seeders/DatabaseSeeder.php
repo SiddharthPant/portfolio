@@ -42,5 +42,15 @@ class DatabaseSeeder extends Seeder
                 $post->tags()->attach($tags->random(rand(1, 5)));
                 Comment::factory()->count(rand(1, 15))->recycle($readers)->recycle($post)->create();
             });
+
+        Post::factory(5)
+            ->archived()
+            ->withFixture()
+            ->for($admin)
+            ->create()
+            ->each(function (Post $post) use ($tags, $readers) {
+                $post->tags()->attach($tags->random(rand(1, 5)));
+                Comment::factory()->count(rand(1, 15))->recycle($readers)->recycle($post)->create();
+            });
     }
 }

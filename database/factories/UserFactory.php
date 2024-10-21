@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\User;
+use App\Support\UserRoleEnum;
 use App\Traits\HasRealTimestamps;
 use DateMalformedStringException;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -33,6 +34,7 @@ class UserFactory extends Factory
         $timestamps = $this->generateTimestamps('-4 years', '-3 years');
 
         return [
+            'ulid' => Str::ulid()->toBase58(),
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => fake()->dateTimeBetween($startDate = '-3 years', $endDate = 'now', $timezone = null),
@@ -50,6 +52,13 @@ class UserFactory extends Factory
     {
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
+        ]);
+    }
+
+    public function admin(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => UserRoleEnum::ADMIN,
         ]);
     }
 }

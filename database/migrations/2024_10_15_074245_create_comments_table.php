@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,8 +16,8 @@ return new class extends Migration
             $table->longText('html');
             $table->unsignedBigInteger('likes_count');
             $table->unsignedBigInteger('dislikes_count');
-            $table->foreignId('user_id')->constrained()->restrictOnDelete();
-            $table->foreignId('post_id')->constrained()->restrictOnDelete();
+            $table->foreignIdFor(User::class)->constrained()->restrictOnDelete();
+            $table->foreignIdFor(Post::class)->constrained()->restrictOnDelete();
             $table->timestamps();
             $table->softDeletes();
         });
