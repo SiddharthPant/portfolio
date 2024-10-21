@@ -39,9 +39,4 @@ class CommentPolicy
     {
         return false;
     }
-
-    public function forceDelete(User $user, Comment $comment): bool
-    {
-        return false;
-    }
 }

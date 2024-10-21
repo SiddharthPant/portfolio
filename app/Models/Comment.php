@@ -20,7 +20,7 @@ class Comment extends Model
     use HasSqid;
     use SoftDeletes;
 
-    const SQID_PREFIX = 'cmnt_';
+    const SQID_PREFIX = 'cmt_';
 
     protected $fillable = [
         'body',

@@ -3,8 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\Tag;
-use App\Traits\HasRealTimestamps;
-use DateMalformedStringException;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,15 +12,8 @@ class TagFactory extends Factory
 {
     protected $model = Tag::class;
 
-    use HasRealTimestamps;
-
-    /**
-     * @throws DateMalformedStringException
-     */
     public function definition(): array
     {
-        $timestamps = $this->generateTimestamps();
-
         return [
             'name' => $this->faker->unique()->randomElement([
                 'php', 'python', 'javascript', 'docker',
@@ -30,8 +21,6 @@ class TagFactory extends Factory
                 'ansible', 'helm', 'argocd', 'prometheus',
                 'grafana',
             ]),
-            'created_at' => $timestamps['created_at'],
-            'updated_at' => $timestamps['updated_at'],
         ];
     }
 }
