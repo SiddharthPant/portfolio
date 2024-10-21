@@ -13,16 +13,19 @@ export default function ({ posts }: { posts: Paginate<Post> }) {
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="mx-auto max-w-2xl">
                         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                            From the blog
+                            Siddharth Pant's Blog
                         </h2>
                         <p className="mt-2 text-lg leading-8 text-gray-600">
-                            Learn how to grow your business with our expert
-                            advice.
+                            Hi, I'm Siddharth. I write about web development,
+                            programming, and tech. I'm a software engineer and
+                            have been working with different tech stacks for the
+                            last decade or so. Welcome to my personal cornor on
+                            the internet...
                         </p>
                         <div className="mt-10 space-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16">
                             {posts.data.map((post) => (
                                 <article
-                                    key={post.id}
+                                    key={post.slug}
                                     className="flex max-w-xl flex-col items-start justify-between"
                                 >
                                     <div className="flex items-center gap-x-4 text-xs">
