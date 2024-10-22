@@ -28,7 +28,6 @@ class CommentFactory extends Factory
         return [
             'body' => $this->faker->text(144),
             'likes_count' => $this->faker->randomNumber(2),
-            'dislikes_count' => $this->faker->randomNumber(2),
             'created_at' => $timestamps['created_at'],
             'updated_at' => $timestamps['updated_at'],
 

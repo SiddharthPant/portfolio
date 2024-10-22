@@ -2,7 +2,8 @@ import AppLayout from "@/Layouts/AppLayout";
 import { Head, Link } from "@inertiajs/react";
 import { Paginate, Post } from "@/types";
 import { formatDistance } from "date-fns";
-import { HandThumbDownIcon, HandThumbUpIcon } from "@heroicons/react/24/solid";
+import { HeartIcon } from "@heroicons/react/24/outline";
+import { HeartIcon as HeartIconSolid } from "@heroicons/react/24/solid";
 
 export default function ({ posts }: { posts: Paginate<Post> }) {
     return (
@@ -66,13 +67,12 @@ export default function ({ posts }: { posts: Paginate<Post> }) {
                                                     <span className="mr-1">
                                                         {post.likes_count}
                                                     </span>
-                                                    <HandThumbUpIcon className="h-4 w-4 text-gray-500" />
-                                                </div>
-                                                <div className="flex items-center text-xs leading-6">
-                                                    <span className="mr-1">
-                                                        {post.dislikes_count}
-                                                    </span>
-                                                    <HandThumbDownIcon className="h-4 w-4 text-gray-500" />
+                                                    {post.likes_count !==
+                                                    "0" ? (
+                                                        <HeartIconSolid className="h-4 w-4 text-gray-500" />
+                                                    ) : (
+                                                        <HeartIcon className="h-4 w-4 text-gray-500" />
+                                                    )}
                                                 </div>
                                             </div>
                                         </div>

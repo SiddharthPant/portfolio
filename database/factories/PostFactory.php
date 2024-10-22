@@ -33,7 +33,6 @@ class PostFactory extends Factory
             'status' => PostStatusEnum::DRAFT,
             'published_at' => null,
             'likes_count' => $this->faker->randomNumber(2),
-            'dislikes_count' => $this->faker->randomNumber(2),
             'created_at' => $timestamps['created_at'],
             'updated_at' => $timestamps['updated_at'],
 

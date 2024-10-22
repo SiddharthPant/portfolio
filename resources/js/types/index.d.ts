@@ -42,8 +42,7 @@ export type Post = {
     body?: string;
     html?: string;
     published_at: string | null;
-    likes_count: number;
-    dislikes_count: number;
+    likes_count: string;
     stripped_content: string;
     created_at: string;
     updated_at: string;

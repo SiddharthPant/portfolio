@@ -19,7 +19,6 @@ return new class extends Migration
             $table->unsignedTinyInteger('status')->default(PostStatusEnum::DRAFT);
             $table->timestamp('published_at')->nullable();
             $table->unsignedBigInteger('likes_count')->default(0);
-            $table->unsignedBigInteger('dislikes_count')->default(0);
             $table->foreignIdFor(User::class)->constrained()->restrictOnDelete();
             $table->timestamps();
             $table->softDeletes();

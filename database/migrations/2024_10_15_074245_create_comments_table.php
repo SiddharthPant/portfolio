@@ -15,7 +15,6 @@ return new class extends Migration
             $table->longText('body');
             $table->longText('html');
             $table->unsignedBigInteger('likes_count');
-            $table->unsignedBigInteger('dislikes_count');
             $table->foreignIdFor(User::class)->constrained()->restrictOnDelete();
             $table->foreignIdFor(Post::class)->constrained()->restrictOnDelete();
             $table->timestamps();

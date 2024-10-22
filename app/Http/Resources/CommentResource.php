@@ -16,8 +16,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
         return [
             'id' => $this->id,
             'html' => $this->html,
-            'likes_count' => $this->likes_count,
-            'dislikes_count' => $this->dislikes_count,
+            'likes_count' => Number::abbreviate($this->likes_count),
+
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
 
