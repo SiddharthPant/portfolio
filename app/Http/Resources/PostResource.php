@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Like;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -9,7 +10,16 @@ use Illuminate\Support\Number;
 
 /** @mixin Post */ class PostResource extends JsonResource
 {
+    private bool $withLikePermission = false;
+
     private bool $withBody = false;
+
+    public function withLikePermission(): self
+    {
+        $this->withLikePermission = true;
+
+        return $this;
+    }
 
     public function withBody(): self
     {
@@ -35,6 +45,10 @@ use Illuminate\Support\Number;
             'updated_at' => $this->updated_at,
 
             'tags' => TagResource::collection($this->whenLoaded('tags')),
+
+            'can' => [
+                'like' => $this->when($this->withLikePermission, fn () => $request->user()?->can('create', [Like::class, $this->resource])),
+            ],
         ];
     }
 
