@@ -20,6 +20,12 @@ Route::get('/', function () {
     ]);
 })->name('index');
 
+Route::get('/posts/{post:slug}', function (Post $post) {
+    return Inertia::render('Post/Show', [
+        'post' => fn () => PostResource::make($post)->withBody(),
+    ]);
+})->name('posts.show');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

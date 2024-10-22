@@ -5,9 +5,19 @@ namespace App\Http\Resources;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Number;
 
 /** @mixin Post */ class PostResource extends JsonResource
 {
+    private bool $withBody = false;
+
+    public function withBody(): self
+    {
+        $this->withBody = true;
+
+        return $this;
+    }
+
     /**
      * @return array<string, mixed>
      */
