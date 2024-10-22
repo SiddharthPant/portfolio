@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Number;
 
 /** @mixin Comment */ class CommentResource extends JsonResource
 {
