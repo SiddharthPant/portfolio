@@ -26,6 +26,14 @@ Route::get('/posts/{post:slug}', function (Post $post) {
     ]);
 })->name('posts.show');
 
+Route::get('/about', function () {
+    return Inertia::render('About');
+})->name('about');
+
+Route::get('/uses', function () {
+    return Inertia::render('Uses');
+})->name('uses');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

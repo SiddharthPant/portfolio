@@ -6,8 +6,8 @@ import Footer from "@/Components/Footer";
 
 const navigation = [
     { name: "Home", href: route("index") },
-    { name: "About", href: "#" },
-    { name: "Uses", href: "#" },
+    { name: "About", href: route("about") },
+    { name: "Uses", href: route("uses") },
 ];
 
 export default function ({
