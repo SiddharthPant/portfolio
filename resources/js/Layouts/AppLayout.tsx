@@ -2,6 +2,7 @@ import { PropsWithChildren, ReactNode, useState } from "react";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "@inertiajs/react";
+import Footer from "@/Components/Footer";
 
 const navigation = [
     { name: "Home", href: route("index") },
@@ -120,6 +121,7 @@ export default function ({
             )}
 
             <main>{children}</main>
+            <Footer />
         </div>
     );
 }
