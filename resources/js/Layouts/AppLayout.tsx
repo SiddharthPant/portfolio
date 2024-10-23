@@ -120,7 +120,7 @@ export default function ({
                 </header>
             )}
 
-            <main>{children}</main>
+            <main className="min-h-screen">{children}</main>
             <Footer />
         </div>
     );
