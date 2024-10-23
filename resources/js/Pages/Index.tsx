@@ -1,7 +1,7 @@
 import AppLayout from "@/Layouts/AppLayout";
 import { Head, Link } from "@inertiajs/react";
 import { Paginate, Post } from "@/types";
-import { formatDistance } from "date-fns";
+import { format } from "date-fns";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { HeartIcon as HeartIconSolid } from "@heroicons/react/24/solid";
 
@@ -34,11 +34,14 @@ export default function ({ posts }: { posts: Paginate<Post> }) {
                                             dateTime={post.published_at!}
                                             className="text-gray-500"
                                         >
-                                            {formatDistance(
-                                                new Date(post.published_at!),
-                                                new Date(),
-                                                { addSuffix: true },
-                                            )}
+                                            {post.published_at
+                                                ? format(
+                                                      new Date(
+                                                          post.published_at,
+                                                      ),
+                                                      "PP",
+                                                  )
+                                                : "NOT PUBLISHED"}
                                         </time>
                                         {post.tags.map((tag) => (
                                             <Link
